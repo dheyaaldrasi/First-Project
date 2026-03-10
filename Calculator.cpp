@@ -1,37 +1,41 @@
-#include<iostream>
-using namespace std;
+#include <iostream>
 
-int main()
-{
-    
-    
-    int n = 6;
-    for (int i = n / 2; i <= n; i += 2){
-        for (int j = 1; j < n - i; j += 2){
-            cout << " ";
-        }
-        for (int j = 1; j <= i; j++){
-            cout << "*";
-        }
-        for (int j = 1; j <= n - i; j++){
-            cout << " ";
-        }
-        for ( int j = 1; j <= i; j++){
-        cout << "*";
-        }
-        cout << endl;
+int main() {
+    double firstNumber = 0;
+    double secondNumber = 0;
+    char operation = '\0';
+
+    std::cout << "Simple C++ Calculator\n";
+    std::cout << "Enter first number: ";
+    std::cin >> firstNumber;
+
+    std::cout << "Enter an operator (+, -, *, /): ";
+    std::cin >> operation;
+
+    std::cout << "Enter second number: ";
+    std::cin >> secondNumber;
+
+    switch (operation) {
+        case '+':
+            std::cout << "Result: " << (firstNumber + secondNumber) << "\n";
+            break;
+        case '-':
+            std::cout << "Result: " << (firstNumber - secondNumber) << "\n";
+            break;
+        case '*':
+            std::cout << "Result: " << (firstNumber * secondNumber) << "\n";
+            break;
+        case '/':
+            if (secondNumber == 0) {
+                std::cout << "Error: Division by zero is not allowed.\n";
+            } else {
+                std::cout << "Result: " << (firstNumber / secondNumber) << "\n";
+            }
+            break;
+        default:
+            std::cout << "Error: Invalid operator.\n";
+            break;
     }
-    
-    for (int i = n; i >= 1; i--){
-        for (int j = i; j < n; j++){
-            cout << " ";
-        }
-        for (int j = 1; j <= (i * 2 - 1); j++){
-        cout << "*";
-        }
-        cout << endl;
-    }
-    
-    
+
     return 0;
 }
